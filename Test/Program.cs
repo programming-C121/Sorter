@@ -3,7 +3,7 @@ using Sorter.Sortables;
 using Sorter.Sorters;
 using Test;
 
-ISorter sorter = new BubbleSorter();
+ISorter sorter = new MergeSorter();
 
 List<int> list = new List<int> { 100, 2, -20, 0, -2, -20, 1, 34 };
 int[] array = new int[]{ 100, 2, -20, 0, -2, -20, 1, 34 };
