@@ -21,9 +21,11 @@ public class MergeSorter : ISorter
 
         int middle = sortable.Count / 2;
         var firstSlice = new SliceSortable(temp, 0, middle);
+        var firstSliceTemp = new SliceSortable(sortable, 0, middle);
         var secondSlice = new SliceSortable(temp, middle, sortable.Count);
-        Sort(firstSlice);
-        Sort(secondSlice);
+        var secondSliceTemp = new SliceSortable(sortable, middle, sortable.Count);
+        Sort(firstSlice , firstSliceTemp);
+        Sort(secondSlice, secondSliceTemp);
         Merge(sortable, firstSlice, secondSlice);
     }
 
