@@ -1,22 +1,16 @@
-﻿namespace Test;
+﻿using System.Diagnostics;
+using Sorter.Interfaces;
 
-public class Utils
+namespace Test;
+
+public static class Utils
 {
-    public static void PrintArray(int[] array)
+    public static long TimeSorting(ISorter sorter, ISortable sortable)
     {
-        for (int i = 0; i < array.Length; i++)
-        {
-            Console.Write(array[i] + " ");
-        }
-        Console.WriteLine();
-    }
-    
-    public static void PrintList(List<int> list)
-    {
-        for (int i = 0; i < list.Count; i++)
-        {
-            Console.Write(list[i] + " ");
-        }
-        Console.WriteLine();
+        var stopwatch = new Stopwatch();
+        stopwatch.Start();
+        sorter.Sort(sortable);
+        stopwatch.Stop();
+        return stopwatch.ElapsedMilliseconds;
     }
 }
